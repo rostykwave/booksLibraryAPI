@@ -1,4 +1,5 @@
 const express = require('express');
+const { validateBody } = require('../../middlewares');
 
 const { controllerWrapper } = require('../../helpers');
 const authControllers = require('../../controllers/auth');
