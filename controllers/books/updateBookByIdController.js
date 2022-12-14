@@ -9,7 +9,11 @@ const updateBookByIdController = async (req, res) => {
   if (!result) {
     throw requestError(404, 'Not found');
   }
-  res.status(201).json(result);
+  res.status(201).json({
+    success: true,
+    message: 'Successfully updated:',
+    data: result,
+  });
 };
 
 module.exports = updateBookByIdController;

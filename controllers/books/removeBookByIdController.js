@@ -10,7 +10,8 @@ const removeBookByIdController = async (req, res) => {
     throw requestError(404, 'Not found');
   }
   res.json({
-    message: 'Deleted successfully',
+    success: true,
+    message: 'Successfully deleted:',
   });
 };
 

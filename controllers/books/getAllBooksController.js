@@ -16,7 +16,10 @@ const getAllBooksController = async (req, res) => {
     author
   );
 
-  res.json(result);
+  res.json({
+    success: true,
+    data: result,
+  });
 };
 
 module.exports = getAllBooksController;

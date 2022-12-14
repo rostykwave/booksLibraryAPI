@@ -9,7 +9,10 @@ const getBookByIdController = async (req, res) => {
   if (!result) {
     throw requestError(404, 'Not found');
   }
-  res.json(result);
+  res.json({
+    success: true,
+    data: result,
+  });
 };
 
 module.exports = getBookByIdController;
