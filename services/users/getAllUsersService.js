@@ -5,7 +5,7 @@ const getAllUsersService = async (sortCreatedAt, skip, limit) => {
     skip,
     limit,
   })
-    .populate('favorites')
+    .populate('favorites', ' -createdAt -updatedAt')
     .sort({ createdAt: sortCreatedAt });
 };
 
