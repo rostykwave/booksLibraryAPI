@@ -1,5 +1,5 @@
 const express = require('express');
-const { validateBody } = require('../../middlewares');
+const { validateBody, validateUserStatus } = require('../../middlewares');
 const { schemas } = require('../../models/user');
 const { controllerWrapper } = require('../../helpers');
 const authControllers = require('../../controllers/auth');
@@ -8,13 +8,14 @@ const router = express.Router();
 router.post(
   '/register',
   validateBody(schemas.registerSchema),
-  controllerWrapper(authControllers.register)
+  controllerWrapper(authControllers.registerController)
 );
 
 router.post(
   '/login',
   validateBody(schemas.loginSchema),
-  controllerWrapper(authControllers.login)
+  validateUserStatus,
+  controllerWrapper(authControllers.loginController)
 );
 
 module.exports = router;
