@@ -31,6 +31,10 @@ const userSchema = new Schema(
       required: true,
       default: 'Active',
     },
+    token: {
+      type: String,
+      default: '',
+    },
   },
   { versionKey: false, timestamps: true }
 );
