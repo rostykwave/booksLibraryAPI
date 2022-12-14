@@ -1,11 +1,20 @@
 const booksServices = require('../../services/books');
 
 const getAllBooksController = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
+  const {
+    sortCreatedAt = 1,
+    limit = 10,
+    page = 1,
+    skip = (page - 1) * limit,
+    author,
+  } = req.query;
 
-  const skip = (page - 1) * limit;
-
-  const result = await booksServices.getAllBooksService(skip, limit);
+  const result = await booksServices.getAllBooksService(
+    sortCreatedAt,
+    skip,
+    limit,
+    author
+  );
 
   res.json(result);
 };
