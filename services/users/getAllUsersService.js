@@ -4,7 +4,9 @@ const getAllUsersService = async (sortCreatedAt, skip, limit) => {
   return await User.find({}, ' -token -password', {
     skip,
     limit,
-  }).sort({ createdAt: sortCreatedAt });
+  })
+    .populate('favorites')
+    .sort({ createdAt: sortCreatedAt });
 };
 
 module.exports = getAllUsersService;

@@ -37,4 +37,11 @@ router.put(
   controllerWrapper(booksControllers.updateBookByIdController)
 );
 
+router.patch(
+  '/:id/favorite',
+  authenticate,
+  // validateBody(schemas.updateFavoriteSchema),
+  controllerWrapper(booksControllers.updateFavoriteBookByIdController)
+);
+
 module.exports = router;
