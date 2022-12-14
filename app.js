@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const authRouter = require('./routes/api/authRouter');
 const booksRouter = require('./routes/api/booksRouter');
+const usersRouter = require('./routes/api/usersRouter');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/books', booksRouter);
+app.use('/api/v1/users', usersRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });

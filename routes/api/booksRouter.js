@@ -1,13 +1,8 @@
 const express = require('express');
-
 const booksControllers = require('../../controllers/books');
-
 const { validateBody, authenticate } = require('../../middlewares');
-
 const { schemas } = require('../../models/book');
-
 const { controllerWrapper } = require('../../helpers');
-
 const router = express.Router();
 
 router.post(
